@@ -19,7 +19,7 @@ This version of the game was discontinued around 2019 and was replaced by the **
 
 ## Progress
 <p align="center">
-  <img src="https://github.com/AleBello7276/MC-LCE-Rewritten/blob/main/img/Bar_v1.png" width="50%" >
+  ## Soon
 </p>
 
 (placeholder it's incorrect for now, it will be fixes)
