@@ -22,6 +22,7 @@ This version of the game was discontinued around 2019 and was replaced by the **
   <img src="https://github.com/AleBello7276/MC-LCE-Rewritten/blob/main/img/Bar_v1.png" width="50%" >
 </p>
 
+(placeholder it's incorrect for now, it will be fixes)
 This is the progress of the **current Goal**.
 (thanks MattKC for the idea ;})
 ## How Do I Help?
