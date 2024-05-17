@@ -3,7 +3,7 @@
 
 ## What Is This Project?
 
-Formally referred to as LCE Rewritten or simply Rewritten
+Formally referred to as **LCE Rewritten or simply Rewritten**
 
 This is a **Rewrite** (or Decompilation) of Minecraft for legacy consoles, also known as **Legacy Console Edition (LCE) or just Legacy.**
 
