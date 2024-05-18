@@ -22,10 +22,10 @@ This version of the game was discontinued around 2019 and was replaced by the **
 
 ## Progress
 <p align="center">
-  ## Soon
+  <img src="https://github.com/AleBello7276/Minecraft-Xbox-360-Decompilation/blob/main/img/Bar-V1.png" width="50%" >
 </p>
 
-(placeholder it's incorrect for now, it will be fixes)
+
 This is the progress of the **current Goal**.
 (thanks MattKC for the idea ;})
 ## How Do I Help?
