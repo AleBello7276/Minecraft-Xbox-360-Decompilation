@@ -1,7 +1,7 @@
 # Minecraft-Xbox-360-Decompilation
 
 <p align="center">
-  <img src="https://github.com/AleBello7276/Minecraft-Xbox-360-Decompilation/blob/main/img/banner.png" width="50%" >
+  <img src="https://github.com/Permdog99/Minecraft-Xbox-360-Decompilation/blob/main/img/banner.png" width="50%" >
 </p>
 
 ## What Is This Project?
@@ -39,7 +39,7 @@ If you want to help me, you are free to pop into the server! 🙂
 - Base Xbox 360 Edition is basically just Java Edition's Beta 1.6.6, but with features designed for the Xbox 360.
 - This rewrite will take a very long time lol.
 
-## Tools I Used
+### Tools I Used
 To view Minecraft's Java beta 1.6.6 code, I used:
 * [RetroMCP][rmcp]: RetroMCP is a modification of the Minecraft Coder Pack.
 
