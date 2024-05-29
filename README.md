@@ -45,7 +45,7 @@ To view Minecraft's Java beta 1.6.6 code, I used:
 
 For reverse engineering parts of the game in the binaries of the console's executable, I used: 
 * [Ghidra][ghi]: Ghidra is a software reverse engineering (SRE) framework created by the National Security Agency.
-
+----
 For loading the .xex along with Ghidra, I used: 
 * [XEXLoaderWV][xel]: XEXLoaderWV is a .xex file loader for Ghidra.
 
