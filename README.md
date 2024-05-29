@@ -3,8 +3,6 @@
 <p align="center">
   <img src="https://github.com/Permdog99/Minecraft-Xbox-360-Decompilation/blob/main/img/banner.png" width="100%" >
 </p>
-----------
-
 ## What Is This Project?
 
 Formally referred to as **LCE Rewritten or simply Rewritten**
@@ -15,7 +13,6 @@ My initial goal is to rewrite base Xbox 360 Edition in **C++** using **DirectX a
 
 ### What Is Minecraft: Legacy Console Edition?
 Minecraft: Legacy Console Edition was a suite of Minecraft versions ported to consoles by [4J Studios][4j]. This version of the game was discontinued around 2019 and was replaced by the **Bedrock Edition.** LCE is commonly refered to by millions of people as the **best version of Minecraft**. 
------------
 
 ## Progress
 <p align="center">
@@ -36,7 +33,6 @@ If you want to help me, you are free to pop into the server! 🙂
 - [ ] Continue to remake class files
 - [ ] Continue to rewrite the game
 - [ ] Continue to add things to this To-Do List :}
------------
 
 ## Useful Things to Know :)
 - Base Xbox 360 Edition is basically just Java Edition's Beta 1.6.6, but with features designed for the Xbox 360.
@@ -57,7 +53,6 @@ For loading the .xex along with Ghidra, I used:
 [xel]: https://github.com/zeroKilo/XEXLoaderWV
 [4j]: https://www.4jstudios.com
 [Todo]: https://github.com/AleBello7276/MC-LCE-Rewritten#to-do-list
-------------
 
 ## Credits
 - Thanks to lenuilu for making the Legacy Rewritten title and logo.
