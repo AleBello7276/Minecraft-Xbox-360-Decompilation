@@ -3,6 +3,7 @@
 <p align="center">
   <img src="https://github.com/Permdog99/Minecraft-Xbox-360-Decompilation/blob/main/img/banner.png" width="100%" >
 </p>
+
 ## What Is This Project?
 
 Formally referred to as **LCE Rewritten or simply Rewritten**
