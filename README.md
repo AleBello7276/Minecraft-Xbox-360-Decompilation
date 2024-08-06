@@ -1,80 +1,60 @@
 # Minecraft-Xbox-360-Decompilation
 
+<p align="center">
+  <img src="https://github.com/Permdog99/Minecraft-Xbox-360-Decompilation/blob/main/img/banner.png" width="100%" >
+</p>
 
 ## What Is This Project?
 
 Formally referred to as **LCE Rewritten or simply Rewritten**
 
-This is a **Rewrite** (or Decompilation) of Minecraft for legacy consoles, also known as **Legacy Console Edition (LCE) or just Legacy.**
+This is a **Rewrite** (or Decompilation) of the Minecraft Console Editions, also known as **Legacy Console Edition (LCE) or just Legacy.**
 
-My initial goal is to rewrite the base game of the xbox 360.
+My initial goal is to rewrite base Xbox 360 Edition in **C++** using **DirectX and Xbox 360 xdx**. It will aim to be as close to the original source code and game behaviors **as possible.**
 
-
-
-This rewrite of the game will be in **C++** using **DirectX and the 360 Xdx**. It will aim to be as close to the original source code and game behaviors **as possible.**
-
-_But in reality, I probably don't even know what I'm doing lol🦆_
-
-## What Is Minecraft Legacy Console Edition?
-Minecraft for legacy consoles was a version of Minecraft ported to consoles by [4J Studios][4j].
-
-This version of the game was discontinued around 2019 and was replaced by the **Bedrock Edition.**
+### What Is Minecraft: Legacy Console Edition?
+Minecraft: Legacy Console Edition was a suite of Minecraft versions ported to consoles by [4J Studios][4j]. This version of the game was discontinued around 2019 and was replaced by the **Bedrock Edition.** LCE is commonly refered to by millions of people as the **best version of Minecraft**. 
 
 ## Progress
 <p align="center">
   <img src="https://github.com/AleBello7276/Minecraft-Xbox-360-Decompilation/blob/main/img/Bar-V1.png" width="50%" >
 </p>
 
-
 This is the progress of the **current Goal**.
 (thanks MattKC for the idea ;})
-## How Do I Help?
+
+### How Do I Help?
 I will post the progress in this amazing Discord server :}
 
 Link: [https://discord.gg/v3KCbd7K6x](https://discord.gg/v3KCbd7K6x)
 
 If you want to help me, you are free to pop into the server! 🙂
 
-## What Are My Plans/Intentions?
-Basically, rewrite the base game of Minecraft Console Edition using the Java Edition's code as reference for matching things and by reverse engineering the game.
-
 ### To-Do List
-- [ ] make this repo better
-
-i'm lazy
-
----
-- [ ] rewrite the game
-
----
-
+- [ ] Continue to remake class files
+- [ ] Continue to rewrite the game
 - [ ] Continue to add things to this To-Do List :}
 
 ## Useful Things to Know :)
-- The base game of the 360 It's just a port of Minecraft java beta 1.6.6 with more things 
+- Base Xbox 360 Edition is basically just Java Edition's Beta 1.6.6, but with features designed for the Xbox 360.
+- This rewrite will take a very long time lol.
 
-- idk
-
-
-
-
-## Tools I Used
+### Tools I Used
 To view Minecraft's Java beta 1.6.6 code, I used:
 * [RetroMCP][rmcp]: RetroMCP is a modification of the Minecraft Coder Pack.
-
----
 
 For reverse engineering parts of the game in the binaries of the console's executable, I used: 
 * [Ghidra][ghi]: Ghidra is a software reverse engineering (SRE) framework created by the National Security Agency.
 
----
-
 For loading the .xex along with Ghidra, I used: 
 * [XEXLoaderWV][xel]: XEXLoaderWV is a .xex file loader for Ghidra.
-
 
 [rmcp]: https://github.com/MCPHackers/RetroMCP-Java
 [ghi]: https://github.com/NationalSecurityAgency/ghidra
 [xel]: https://github.com/zeroKilo/XEXLoaderWV
 [4j]: https://www.4jstudios.com
 [Todo]: https://github.com/AleBello7276/MC-LCE-Rewritten#to-do-list
+
+## Credits
+- Thanks to lenuilu for making the Legacy Rewritten title and logo.
+- Thanks to Permdog99 for making the LR banner.
