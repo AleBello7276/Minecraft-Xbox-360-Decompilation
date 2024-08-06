@@ -1,0 +1,9 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Minecraft Rewritten.sln
+/Minecraft Rewritten.vcxproj
+/Minecraft Rewritten.vcxproj.filters
+/Minecraft Rewritten.vcxproj.user
