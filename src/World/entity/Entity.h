@@ -1,8 +1,8 @@
 #pragma once
 
-#include "AABB.h"
+#include "../../Util/AxisAlignedBB.h"
 
-class Entity{
+class Entity {
 
 public:
 	double prevPosX;
@@ -18,7 +18,7 @@ public:
 	float rotationPitch;
 	float prevRotationYaw;
 	float prevRotationPitch;
-	AABB boundingBox;
+	AxisAlignedBB boundingBox;
 	bool onGround;
 	bool isCollidedHorizontally;
 	bool isCollidedVertically;
@@ -28,17 +28,17 @@ public:
 	bool field_9293_aM;
 	bool isDead;
 	float yOffset;
-	float width; //0.6F
-	float height; // 1.8
-	float prevDistanceWalkedModified; //0.0f
-	float distanceWalkedModified;//0.0f
-	float fallDistance;//0.0f
+	float width = 0.6F;
+	float height = 1.8F;
+	float prevDistanceWalkedModified = 0.0F;
+	float distanceWalkedModified = 0.0F;
+	float fallDistance = 0.0F;
 	double lastTickPosX;
 	double lastTickPosY;
 	double lastTickPosZ;
 	float ySize;
 
-	void setLocationAndAngles(double x, double y, double y, float yaw, float pitch);
+	void setLocationAndAngles(double x, double y, double z, float yaw, float pitch);
 	void setPosition(double x, double y, double z);
 	void setSize(float width, float height);
 	void setEntityDead();
@@ -47,7 +47,7 @@ public:
 
 
 private:
-	int nextStepDistance;//1
+	int nextStepDistance = 1;
 
 
-}
+};
