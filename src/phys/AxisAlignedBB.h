@@ -2,7 +2,7 @@
 
 #include <vector>
 #include <string>
-#include "Vec3D.h"
+#include "../Util/Vec3D.h"
 
 class AxisAlignedBB {
 private:

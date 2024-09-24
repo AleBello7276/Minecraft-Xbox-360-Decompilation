@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../Util/AxisAlignedBB.h"
+#include "../../phys/AxisAlignedBB.h"
 
 class Entity {
 
