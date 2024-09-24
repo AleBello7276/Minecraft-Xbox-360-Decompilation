@@ -5,15 +5,12 @@
 
 Formally referred to as **LCE Rewritten or simply Rewritten**
 
-This is a **Rewrite** (or Decompilation) of Minecraft for legacy consoles, also known as **Legacy Console Edition (LCE) or just Legacy.**
-
-My initial goal is to rewrite the base game of the xbox 360.
+This is a **Rewrite** (or Decompilation idk lol) of the Xbox 360 edition of Minecraft Legacy, also known as **Legacy Console Edition (LCE) or just Legacy.**
 
 
 
-This rewrite of the game will be in **C++** using **DirectX and the 360 Xdx**. It will aim to be as close to the original source code and game behaviors **as possible.**
+The Decomp will first aim to be as close **as possible** to the original source code but mainly the game behaviors.
 
-_But in reality, I probably don't even know what I'm doing lol🦆_
 
 ## What Is Minecraft Legacy Console Edition?
 Minecraft for legacy consoles was a version of Minecraft ported to consoles by [4J Studios][4j].
@@ -26,45 +23,30 @@ This version of the game was discontinued around 2019 and was replaced by the **
 </p>
 
 
-This is the progress of the **current Goal**.
-(thanks MattKC for the idea ;})
+This is the **current Goal**.
 ## How Do I Help?
-I will post the progress in this amazing Discord server :}
+You can join the Official Discord Server!
 
 Link: [https://discord.gg/v3KCbd7K6x](https://discord.gg/v3KCbd7K6x)
 
-If you want to help me, you are free to pop into the server! 🙂
 
-## What Are My Plans/Intentions?
-Basically, rewrite the base game of Minecraft Console Edition using the Java Edition's code as reference for matching things and by reverse engineering the game.
+## How to Build
+This is a oversimplified guide to build the project.
+on windows it works 100% since that's what I'm using, on linux and MacOs I don't know, if someone can run the Compiler and Linker EXEs on maybe Wine I think it can still work but I don't know
 
-### To-Do List
-- [ ] make this repo better
+- First make sure to have a copy of the Xbox 360 XDK downloaded on your machine (I won't provide any guide on how to install it! you'll have to figure it out yourself)
+- at the moment we'll just need the folders: bin/ lib/ and include/ also the documentation can be useful, the rest will not be used
+- You need to set an Enviroment Varialble called "XEDK" which will be the root folder of the xdk (basically the folder where bin/ lib/ and include/ are located)
+- Then just run ``make`` to build the project
+- I recommend including the headers found in include/xbox in the IDE you are using, so intellisense will work with those, it will help a lot
 
-i'm lazy
-
----
-- [ ] rewrite the game
-
----
-
-- [ ] Continue to add things to this To-Do List :}
-
-## Useful Things to Know :)
-- The base game of the 360 It's just a port of Minecraft java beta 1.6.6 with more things 
-
-- idk
-
-
-
-
-## Tools I Used
-To view Minecraft's Java beta 1.6.6 code, I used:
+## Tools Used
+To compare Minecraft's Java beta 1.6.6 code to decompilation, I used:
 * [RetroMCP][rmcp]: RetroMCP is a modification of the Minecraft Coder Pack.
 
 ---
 
-For reverse engineering parts of the game in the binaries of the console's executable, I used: 
+For reverse engineering the game binaries's, I used: 
 * [Ghidra][ghi]: Ghidra is a software reverse engineering (SRE) framework created by the National Security Agency.
 
 ---
