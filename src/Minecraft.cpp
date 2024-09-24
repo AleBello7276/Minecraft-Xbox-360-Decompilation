@@ -1,123 +1,71 @@
-// Minecraft.cpp : Defines the entry point for the application.
-//
+#include "Minecraft.h"
 
-#include <xtl.h>
-#include <xboxmath.h>
-#include <cstdio>
-#include "World/entity/Entity.h"
 
-//-------------------------------------------------------------------------------------
-// Vertex shader
-// We use the register semantic here to directly define the input register
-// matWVP.  Conversely, we could let the HLSL compiler decide and check the
-// constant table.
-//-------------------------------------------------------------------------------------
-const char* g_strVertexShaderProgram = 
-" float4x4 matWVP : register(c0);              "  
-"                                              "  
-" struct VS_IN                                 "  
-" {                                            " 
-"     float4 ObjPos   : POSITION;              "  // Object space position 
-"     float4 Color    : COLOR;                 "  // Vertex color                 
-" };                                           " 
-"                                              " 
-" struct VS_OUT                                " 
-" {                                            " 
-"     float4 ProjPos  : POSITION;              "  // Projected space position 
-"     float4 Color    : COLOR;                 "  
-" };                                           "  
-"                                              "  
-" VS_OUT main( VS_IN In )                      "  
-" {                                            "  
-"     VS_OUT Out;                              "  
-"     Out.ProjPos = mul( matWVP, In.ObjPos );  "  // Transform vertex into
-"     Out.Color = In.Color;                    "  // Projected space and 
-"     return Out;                              "  // Transfer color
-" }                                            ";
 
-//-------------------------------------------------------------------------------------
-// Pixel shader
-//-------------------------------------------------------------------------------------
-const char* g_strPixelShaderProgram = 
-" struct PS_IN                                 "
-" {                                            "
-"     float4 Color : COLOR;                    "  // Interpolated color from                      
-" };                                           "  // the vertex shader
-"                                              "  
-" float4 main( PS_IN In ) : COLOR              "  
-" {                                            "  
-"     return In.Color;                         "  // Output color
-" }                                            "; 
 
-//-------------------------------------------------------------------------------------
-// Structure to hold vertex data.
-//-------------------------------------------------------------------------------------
-struct COLORVERTEX
+
+
+Minecraft::Minecraft()
 {
-    float       Position[3];
-    DWORD       Color;
-};
-
-//-------------------------------------------------------------------------------------
-// Time             Since fAppTime is a float, we need to keep the quadword app time 
-//                  as a LARGE_INTEGER so that we don't lose precision after running
-//                  for a long time.
-//-------------------------------------------------------------------------------------
-struct TimeInfo
-{    
-    LARGE_INTEGER qwTime;    
-    LARGE_INTEGER qwAppTime;   
-
-    float fAppTime;    
-    float fElapsedTime;    
-
-    float fSecsPerTick;    
-};
-
-//-------------------------------------------------------------------------------------
-// Global variables
-//-------------------------------------------------------------------------------------
-D3DDevice*             g_pd3dDevice;    // Our rendering device
-D3DVertexBuffer*       g_pVB;           // Buffer to hold vertices
-D3DVertexDeclaration*  g_pVertexDecl;   // Vertex format decl
-D3DVertexShader*       g_pVertexShader; // Vertex Shader
-D3DPixelShader*        g_pPixelShader;  // Pixel Shader
-
-XMMATRIX g_matWorld;
-XMMATRIX g_matProj;
-XMMATRIX g_matView;
-
-TimeInfo g_Time;
-
-BOOL g_bWidescreen = TRUE;
-
-//-------------------------------------------------------------------------------------
-// Name: InitTime()
-// Desc: Initializes the timer variables
-//-------------------------------------------------------------------------------------
-void InitTime()
-{    
-
-    // Get the frequency of the timer
-    LARGE_INTEGER qwTicksPerSec;
-    QueryPerformanceFrequency( &qwTicksPerSec );
-    g_Time.fSecsPerTick = 1.0f / (float)qwTicksPerSec.QuadPart;
-
-    // Save the start time
-    QueryPerformanceCounter( &g_Time.qwTime );
-    
-    // Zero out the elapsed and total time
-    g_Time.qwAppTime.QuadPart = 0;
-    g_Time.fAppTime = 0.0f; 
-    g_Time.fElapsedTime = 0.0f;    
+    this->e = new Entity();
+    this->g_bWidescreen = TRUE;
+    this->init();
 }
 
 
-//-------------------------------------------------------------------------------------
-// Name: InitD3D()
-// Desc: Initializes Direct3D
-//-------------------------------------------------------------------------------------
-HRESULT InitD3D()
+void Minecraft::init()
+{
+    initSample();
+}
+
+void Minecraft::run()
+{
+    runSample();
+}
+
+
+void Minecraft::runSample()
+{
+    this->UpdateTime();
+    this->Update();   
+    this->Render();
+}
+
+void Minecraft::initSample()
+{
+    // Initialize Direct3D
+    if( FAILED( InitD3D() ) )
+        return;
+
+    // Initialize the vertex buffer
+    if( FAILED( InitScene() ) )
+        return;
+
+    InitTime();
+}
+
+
+
+
+
+
+void Minecraft::InitTime()
+{    
+    // Get the frequency of the timer
+    LARGE_INTEGER qwTicksPerSec;
+    QueryPerformanceFrequency( &qwTicksPerSec );
+    this->g_Time.fSecsPerTick = 1.0f / (float)qwTicksPerSec.QuadPart;
+
+    // Save the start time
+    QueryPerformanceCounter( &this->g_Time.qwTime );
+    
+    // Zero out the elapsed and total time
+    this->g_Time.qwAppTime.QuadPart = 0;
+    this->g_Time.fAppTime = 0.0f; 
+    this->g_Time.fElapsedTime = 0.0f;    
+}
+
+HRESULT Minecraft::InitD3D()
 {
     // Create the D3D object.
     Direct3D* pD3D = Direct3DCreate9( D3D_SDK_VERSION );
@@ -149,17 +97,8 @@ HRESULT InitD3D()
 }
 
 
-//-------------------------------------------------------------------------------------
-// Name: InitScene()
-// Desc: Creates the scene.  First we compile our shaders. For the final version
-//       of a game, you should store the shaders in binary form; don't call 
-//       D3DXCompileShader at runtime. Next, we declare the format of our 
-//       vertices, and then create a vertex buffer. The vertex buffer is basically
-//       just a chunk of memory that holds vertices. After creating it, we must 
-//       Lock()/Unlock() it to fill it. Finally, we set up our world, projection,
-//       and view matrices.
-//-------------------------------------------------------------------------------------
-HRESULT InitScene()
+
+HRESULT Minecraft::InitScene()
 {
     // Compile vertex shader.
     ID3DXBuffer* pVertexShaderCode;
@@ -263,12 +202,7 @@ HRESULT InitScene()
     return S_OK;
 }
 
-
-//-------------------------------------------------------------------------------------
-// Name: UpdateTime()
-// Desc: Updates the elapsed time since our last frame.
-//-------------------------------------------------------------------------------------
-void UpdateTime()
+void Minecraft::UpdateTime()
 {
     LARGE_INTEGER qwNewTime;
     LARGE_INTEGER qwDeltaTime;
@@ -283,37 +217,17 @@ void UpdateTime()
     g_Time.fAppTime          = g_Time.fSecsPerTick * ((FLOAT)(g_Time.qwAppTime.QuadPart));    
 }
 
-void LogPrintf(const char* format, ...) {
-    // Buffer to hold the formatted string
-    char buffer[256]; // Adjust size as necessary
 
-    // Initialize variable argument list
-    va_list args;
-    va_start(args, format);
 
-    // Format the string
-    vsnprintf(buffer, sizeof(buffer), format, args);
 
-    // End variable argument list
-    va_end(args);
-
-    // Output the debug string
-    OutputDebugStringA(buffer);
-}
-
-//-------------------------------------------------------------------------------------
-// Name: Update()
-// Desc: Updates the world for the next frame
-//-------------------------------------------------------------------------------------
-void Update()
+void Minecraft::Update()
 {
-    Entity * e = new Entity();
     e->beenAttacked = !e->beenAttacked;
 
     // Set the world matrix
     float fAngle = fmodf( -g_Time.fAppTime, XM_2PI );
     e->setPosition((double)fAngle, (double)fAngle,(double)fAngle);
-    LogPrintf("TEEEEEEEEEEESTT--------------sss-- %f \n", e->posX);
+    Logger::LogPrintf("TEEEEEEEEEEESTT--------------sss-- %f \n", e->posX);
     static const XMVECTOR vAxisZ = { 0, 0, 1.0f, 0 };
     g_matWorld = XMMatrixRotationAxis( vAxisZ, fAngle );
 }
@@ -321,11 +235,8 @@ void Update()
 
 
 
-//-------------------------------------------------------------------------------------
-// Name: Render()
-// Desc: Draws the scene
-//-------------------------------------------------------------------------------------
-void Render()
+
+void Minecraft::Render()
 {
     // Clear the backbuffer to a blue color
     g_pd3dDevice->Clear( 0L, NULL, D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER|D3DCLEAR_STENCIL, 
@@ -354,30 +265,16 @@ void Render()
 }
 
 
-//-------------------------------------------------------------------------------------
-// Name: main()
-// Desc: The application's entry point
-//-------------------------------------------------------------------------------------
-void __cdecl main()
+
+int __cdecl main()
 {
-    // Initialize Direct3D
-    if( FAILED( InitD3D() ) )
-        return;
 
-    // Initialize the vertex buffer
-    if( FAILED( InitScene() ) )
-        return;
-
-    InitTime();
-
+    Minecraft* mc = new Minecraft();
+    
     for(;;) // loop forever
     {
-        // What time is it?
-        UpdateTime();
-        // Update the world
-        Update();   
-        // Render the scene
-        Render();
+        mc->run();
     }
-}
 
+    return 0;
+}
