@@ -1,6 +1,6 @@
 # ------------in short---------------
 
-# - make sure to set "XEDK" enviroment variable to the root folder of the XDK
+# - make sure to set "XEDK" environment variable to the root folder of the XDK
 
 # - we compile with cl.exe every .cpp into .obj
 # - after that we link with link.exe the .obj into a EXE
@@ -12,7 +12,7 @@
 # ------------XDK stuff---------------
 XDKPATH := $(subst \,/,$(XEDK))
 
-# Path for XDK Linker, Compiler amd ImageXex, libs and header include 
+# Path for XDK Linker, Compiler and ImageXex, libs and header include 
 CC := "$(XDKPATH)/bin/win32/cl.exe"
 LINKER := "$(XDKPATH)/bin/win32/link.exe"
 IX := "$(XDKPATH)/bin/win32/imagexex.exe"
@@ -28,17 +28,19 @@ XLIBS := xapilib.lib d3d9ltcg.lib d3dx9.lib xgraphics.lib xboxkrnl.lib xnet.lib 
 PROJECT_NAME := "MinecraftX360"
 SRC_DIR := src
 OUTPUT_DIR := build
-EXE_NAME :=  $(OUTPUT_DIR)/$(PROJECT_NAME).exe
+EXE_NAME := $(OUTPUT_DIR)/$(PROJECT_NAME).exe
 
 # generated stuff for make file (grabs all .cpp files and all .obj files)
 SOURCES := \
     src/Minecraft.cpp \
     src/stdafx.cpp \
     src/World/entity/Entity.cpp \
-    src/Util/AxisAlignedBB.cpp \
+    src/phys/AxisAlignedBB.cpp \
     src/Util/MathHelper.cpp \
     src/Util/Vec3D.cpp \
-    
+    src/World/map/MapData.cpp \
+    src/World/nbt/NBTBase.cpp \
+
 
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUTPUT_DIR)/%.obj)
 
@@ -59,13 +61,31 @@ $(OUTPUT_DIR)/%.obj: $(SRC_DIR)/%.cpp | $(OUTPUT_DIR)
 	$(CC) $(CFLAGS) /c $< /Fo$@
 
 
+# --------------create_dirs---------------
+# this create the folders for obj files inside of build/ for the linker
+# I'm sure there's a simpler and better way to automate everything also for $SOURCES too (cmake I guess lol) but I've banged my head enough with this file so, if it works, it works
+MCDIRS := \
+    build/World/entity/ \
+    build/phys/ \
+    build/Util/ \
+    build/World/map/ \
+    build/World/nbt/ 
 
-
+.PHONY: create_dirs
+create_dirs:
+	@for %%d in ($(MCDIRS)) do ( \
+		if not exist "%%d" ( \
+			mkdir "%%d" && echo Created directory %%d \
+		) else ( \
+			echo Directory %%d already exists. \
+		) \
+	)
+# --------------create_dirs---------------
 
 .PHONY: clean
 clean:
 	del /F /Q $(OUTPUT_DIR)
+    
 
-all:
-	echo $(SOURCES)
-	
+# Default target
+all: create_dirs
