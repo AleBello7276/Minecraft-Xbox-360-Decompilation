@@ -1,5 +1,4 @@
 #include "Vec3D.h"
-#include <sstream>
 
 std::vector<Vec3D*> Vec3D::vectorList;
 int Vec3D::nextVector = 0;
@@ -8,13 +7,14 @@ Vec3D* Vec3D::createVectorHelper(double x, double y, double z) {
     return new Vec3D(x, y, z);
 }
 
-void Vec3D::func_28215_a() {
-    for (Vec3D* vec : vectorList) {
+/*void Vec3D::func_28215_a() {
+    for (Vec3D* vec : vectorList) 
+    {
         delete vec;
     }
     vectorList.clear();
     nextVector = 0;
-}
+}*/
 
 void Vec3D::initialize() {
     nextVector = 0;

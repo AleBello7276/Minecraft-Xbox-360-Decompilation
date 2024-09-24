@@ -183,6 +183,6 @@ void AxisAlignedBB::setBB(const AxisAlignedBB& var1) {
 }
 
 std::string AxisAlignedBB::toString() const {
-    return "box[" + std::to_string(minX) + ", " + std::to_string(minY) + ", " + std::to_string(minZ) + " -> " +
-        std::to_string(maxX) + ", " + std::to_string(maxY) + ", " + std::to_string(maxZ) + "]";
+    return "box[" + std::to_string((long double)minX) + ", " + std::to_string((long double)minY) + ", " + std::to_string((long double)minZ) + " -> " +
+        std::to_string((long double)maxX) + ", " + std::to_string((long double)maxY) + ", " + std::to_string((long double)maxZ) + "]";
 }

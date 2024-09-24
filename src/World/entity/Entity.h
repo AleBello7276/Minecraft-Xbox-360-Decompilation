@@ -18,7 +18,7 @@ public:
 	float rotationPitch;
 	float prevRotationYaw;
 	float prevRotationPitch;
-	AxisAlignedBB boundingBox;
+	AxisAlignedBB *boundingBox;
 	bool onGround;
 	bool isCollidedHorizontally;
 	bool isCollidedVertically;
@@ -28,16 +28,17 @@ public:
 	bool field_9293_aM;
 	bool isDead;
 	float yOffset;
-	float width = 0.6F;
-	float height = 1.8F;
-	float prevDistanceWalkedModified = 0.0F;
-	float distanceWalkedModified = 0.0F;
-	float fallDistance = 0.0F;
+	float width;
+	float height;
+	float prevDistanceWalkedModified;
+	float distanceWalkedModified;
+	float fallDistance;
 	double lastTickPosX;
 	double lastTickPosY;
 	double lastTickPosZ;
 	float ySize;
 
+	Entity();
 	void setLocationAndAngles(double x, double y, double z, float yaw, float pitch);
 	void setPosition(double x, double y, double z);
 	void setSize(float width, float height);
@@ -47,7 +48,7 @@ public:
 
 
 private:
-	int nextStepDistance = 1;
+	int nextStepDistance;
 
 
 };

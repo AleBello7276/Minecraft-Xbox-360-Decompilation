@@ -31,7 +31,15 @@ OUTPUT_DIR := build
 EXE_NAME :=  $(OUTPUT_DIR)/$(PROJECT_NAME).exe
 
 # generated stuff for make file (grabs all .cpp files and all .obj files)
-SOURCES := $(wildcard $(SRC_DIR)/*.cpp)
+SOURCES := \
+    src/Minecraft.cpp \
+    src/stdafx.cpp \
+    src/World/entity/Entity.cpp \
+    src/Util/AxisAlignedBB.cpp \
+    src/Util/MathHelper.cpp \
+    src/Util/Vec3D.cpp \
+    
+
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUTPUT_DIR)/%.obj)
 
 
@@ -57,4 +65,7 @@ $(OUTPUT_DIR)/%.obj: $(SRC_DIR)/%.cpp | $(OUTPUT_DIR)
 .PHONY: clean
 clean:
 	del /F /Q $(OUTPUT_DIR)
+
+all:
+	echo $(SOURCES)
 	

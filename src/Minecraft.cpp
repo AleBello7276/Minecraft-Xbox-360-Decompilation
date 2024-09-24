@@ -1,8 +1,10 @@
 // Minecraft.cpp : Defines the entry point for the application.
 //
 
-#include "stdafx.h"
-
+#include <xtl.h>
+#include <xboxmath.h>
+#include <cstdio>
+#include "World/entity/Entity.h"
 
 //-------------------------------------------------------------------------------------
 // Vertex shader
@@ -281,6 +283,23 @@ void UpdateTime()
     g_Time.fAppTime          = g_Time.fSecsPerTick * ((FLOAT)(g_Time.qwAppTime.QuadPart));    
 }
 
+void LogPrintf(const char* format, ...) {
+    // Buffer to hold the formatted string
+    char buffer[256]; // Adjust size as necessary
+
+    // Initialize variable argument list
+    va_list args;
+    va_start(args, format);
+
+    // Format the string
+    vsnprintf(buffer, sizeof(buffer), format, args);
+
+    // End variable argument list
+    va_end(args);
+
+    // Output the debug string
+    OutputDebugStringA(buffer);
+}
 
 //-------------------------------------------------------------------------------------
 // Name: Update()
@@ -288,11 +307,18 @@ void UpdateTime()
 //-------------------------------------------------------------------------------------
 void Update()
 {
+    Entity * e = new Entity();
+    e->beenAttacked = !e->beenAttacked;
+
     // Set the world matrix
     float fAngle = fmodf( -g_Time.fAppTime, XM_2PI );
+    e->setPosition((double)fAngle, (double)fAngle,(double)fAngle);
+    LogPrintf("TEEEEEEEEEEESTT--------------sss-- %f \n", e->posX);
     static const XMVECTOR vAxisZ = { 0, 0, 1.0f, 0 };
     g_matWorld = XMMatrixRotationAxis( vAxisZ, fAngle );
 }
+
+
 
 
 //-------------------------------------------------------------------------------------
@@ -306,6 +332,7 @@ void Render()
                          D3DCOLOR_XRGB(0,0,255), 1.0f, 0L );
 
     // Draw the triangles in the vertex buffer. This is broken into a few steps:
+    
     
     // We are passing the vertices down a "stream", so first we need
     // to specify the source of that stream, which is our vertex buffer. 
