@@ -1,5 +1,5 @@
 #include "Minecraft.h"
-
+#include "DefaultShaders.h"
 
 
 
@@ -9,7 +9,6 @@ Minecraft::Minecraft()
 {
     this->e = new Entity();
     this->g_bWidescreen = TRUE;
-    this->init();
 }
 
 
@@ -222,12 +221,8 @@ void Minecraft::UpdateTime()
 
 void Minecraft::Update()
 {
-    e->beenAttacked = !e->beenAttacked;
-
     // Set the world matrix
     float fAngle = fmodf( -g_Time.fAppTime, XM_2PI );
-    e->setPosition((double)fAngle, (double)fAngle,(double)fAngle);
-    Logger::LogPrintf("TEEEEEEEEEEESTT--------------sss-- %f \n", e->posX);
     static const XMVECTOR vAxisZ = { 0, 0, 1.0f, 0 };
     g_matWorld = XMMatrixRotationAxis( vAxisZ, fAngle );
 }
@@ -265,16 +260,3 @@ void Minecraft::Render()
 }
 
 
-
-int __cdecl main()
-{
-
-    Minecraft* mc = new Minecraft();
-    
-    for(;;) // loop forever
-    {
-        mc->run();
-    }
-
-    return 0;
-}

@@ -32,13 +32,15 @@ EXE_NAME := $(OUTPUT_DIR)/$(PROJECT_NAME).exe
 
 # generated stuff for make file (grabs all .cpp files and all .obj files)
 SOURCES := \
+    src/Game.cpp \
     src/Minecraft.cpp \
-    src/stdafx.cpp \
     src/World/entity/Entity.cpp \
+    src/World/map/MapColor.cpp \
     src/phys/AxisAlignedBB.cpp \
     src/Util/MathHelper.cpp \
     src/Util/Vec3D.cpp \
-    src/World/map/MapData.cpp \
+    src/Block/Material/Material.cpp \
+#    src/World/map/MapData.cpp \
 
 
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUTPUT_DIR)/%.obj)
@@ -68,7 +70,8 @@ MCDIRS := \
     build/phys/ \
     build/Util/ \
     build/World/map/ \
-    build/World/nbt/ 
+    build/World/nbt/ \
+    build/Block/Material/ \
 
 .PHONY: create_dirs
 create_dirs:
