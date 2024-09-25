@@ -6,13 +6,13 @@ MapData::MapData(const std::string& var1) : MapDataBase(var1)
 }
 
 
-MapData::readFromNBT(NBTTagCompound* compound)
+/*int MapData::readFromNBT(NBTTagCompound* compound)
 {
-
+    return 0;
 }
 
 
-MapData::writeToNBT(NBTTagCompound* compound)
+int MapData::writeToNBT(NBTTagCompound* compound)
 {
-
-}
+    return 0;
+}*/

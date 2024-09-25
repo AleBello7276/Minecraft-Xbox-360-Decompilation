@@ -11,7 +11,8 @@ class EntityPlayer;    // Forward declaration
 class ItemStack;       // Forward declaration
 class MapInfo;         // Forward declaration
 
-class MapData : public MapDataBase {
+class MapData : public MapDataBase 
+{
 public:
     int field_28180_b;
     int field_28179_c;
@@ -26,8 +27,8 @@ public:
     MapData(const std::string& var1);
 
     
-    void readFromNBT(NBTTagCompound* var1) override;
-    void writeToNBT(NBTTagCompound* var1) override;
+    //void readFromNBT(NBTTagCompound* var1) override;
+    //void writeToNBT(NBTTagCompound* var1) override;
     void func_28169_a(EntityPlayer* var1, ItemStack* var2);
     void func_28170_a(int var1, int var2, int var3);
     void func_28171_a(short* var1);

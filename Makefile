@@ -39,7 +39,6 @@ SOURCES := \
     src/Util/MathHelper.cpp \
     src/Util/Vec3D.cpp \
     src/World/map/MapData.cpp \
-    src/World/nbt/NBTBase.cpp \
 
 
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUTPUT_DIR)/%.obj)
