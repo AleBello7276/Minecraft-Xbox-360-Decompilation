@@ -7,6 +7,7 @@
 #include "MapCoord.h" 
 #include "../nbt/NBTTagCompound.h"
 
+// temporary
 class EntityPlayer;    // Forward declaration
 class ItemStack;       // Forward declaration
 class MapInfo;         // Forward declaration
@@ -22,7 +23,7 @@ public:
     int field_28175_g;
     std::vector<MapInfo*> field_28174_h; 
     std::unordered_map<EntityPlayer*, MapInfo*> field_28172_j; 
-    std::vector<MapCoord*> field_28173_i; 
+    std::vector<MapCoortemporaryd*> field_28173_i; 
 
     MapData(const std::string& var1);
 

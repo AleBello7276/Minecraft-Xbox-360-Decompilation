@@ -7,21 +7,16 @@ public:
     const std::string field_28168_a;
 
     
-    MapDataBase(const std::string& var1) : field_28168_a(var1), dirty(false) 
-    {
-
-    }
+    MapDataBase(const std::string& var1) : field_28168_a(var1), dirty(false) { }
 
     
     virtual void readFromNBT(NBTTagCompound* var1) = 0;
     virtual void writeToNBT(NBTTagCompound* var1) = 0;
 
-    // Mark as dirty
-    void markDirty() {
+    void markDirty() 
+    {
         setDirty(true);
     }
-
-    
     void setDirty(bool var1) 
     {
         dirty = var1;
@@ -34,5 +29,5 @@ public:
     }
 
 private:
-    bool dirty; // Holds dirty status
+    bool dirty;
 };
