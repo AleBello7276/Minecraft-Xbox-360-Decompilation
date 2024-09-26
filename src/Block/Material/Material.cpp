@@ -32,78 +32,55 @@ Material
 
 void Material::initMaterials()
 {
-	air             = new Material(MapColor::field_28212_b);
-	grassMaterial   = new Material(MapColor::field_28211_c);
-	ground          = new Material(MapColor::field_28202_l);
-	wood            = new Material(MapColor::field_28199_o);
-	rock            = new Material(MapColor::field_28201_m);
-	iron            = new Material(MapColor::field_28206_h);
-	water           = new Material(MapColor::field_28200_n);
-	lava            = new Material(MapColor::field_28208_f);
-	leaves          = new Material(MapColor::field_28205_i);
-	plants          = new Material(MapColor::field_28205_i);
-	sponge          = new Material(MapColor::field_28209_e);
-	cloth           = new Material(MapColor::field_28209_e);
-	fire            = new Material(MapColor::field_28212_b);
-	sand            = new Material(MapColor::field_28210_d);
-	circuits        = new Material(MapColor::field_28212_b);
-	glass           = new Material(MapColor::field_28212_b);
-	tnt             = new Material(MapColor::field_28208_f);
-	field_4262_q    = new Material(MapColor::field_28205_i);
-	ice             = new Material(MapColor::field_28207_g);
-	snow            = new Material(MapColor::field_28204_j);
-	builtSnow       = new Material(MapColor::field_28204_j);
-	cactus          = new Material(MapColor::field_28205_i);
-	clay            = new Material(MapColor::field_28203_k);
-	pumpkin         = new Material(MapColor::field_28205_i);
-	portal          = new Material(MapColor::field_28212_b);
-    cakeMaterial    = new Material(MapColor::field_28212_b);
+	air             = (new MaterialTransparent(MapColor::field_28212_b));
+	grassMaterial   = (new Material(MapColor::field_28211_c));
+	ground          = (new Material(MapColor::field_28202_l));
+	wood            = (new Material(MapColor::field_28199_o))->setBurning();
+	rock            = (new Material(MapColor::field_28201_m));
+	iron            = (new Material(MapColor::field_28206_h));
+	water           = (new MaterialLiquid(MapColor::field_28200_n));
+	lava            = (new MaterialLiquid(MapColor::field_28208_f));
+	leaves          = (new Material(MapColor::field_28205_i))->setBurning()->func_28127_i();
+	plants          = (new MaterialLogic(MapColor::field_28205_i));
+	sponge          = (new Material(MapColor::field_28209_e));
+	cloth           = (new Material(MapColor::field_28209_e))->setBurning();
+	fire            = (new MaterialTransparent(MapColor::field_28212_b));
+	sand            = (new Material(MapColor::field_28210_d));
+	circuits        = (new MaterialLogic(MapColor::field_28212_b));
+	glass           = (new Material(MapColor::field_28212_b))->func_28127_i();
+	tnt             = (new Material(MapColor::field_28208_f))->setBurning()->func_28127_i();
+	field_4262_q    = (new Material(MapColor::field_28205_i));
+	ice             = (new Material(MapColor::field_28207_g))->func_28127_i();
+	snow            = (new MaterialLogic(MapColor::field_28204_j))->func_27284_f()->func_28127_i();
+	builtSnow       = (new Material(MapColor::field_28204_j));
+	cactus          = (new Material(MapColor::field_28205_i))->func_28127_i();
+	clay            = (new Material(MapColor::field_28203_k));
+	pumpkin         = (new Material(MapColor::field_28205_i));
+	portal          = (new MaterialPortal(MapColor::field_28212_b));
+    cakeMaterial    = (new Material(MapColor::field_28212_b));
 }
 
-/*void Material::teardownMaterials()
-{
-	delete air;
-    delete grassMaterial;
-    delete ground;
-    delete wood;
-    delete rock;
-    delete iron;
-    delete water;
-    delete lava;
-    delete leaves;
-    delete plants;
-    delete sponge;
-    delete cloth;
-    delete fire;
-    delete sand;
-    delete circuits;
-    delete glass;
-    delete tnt;
-    delete field_4262_q;
-    delete ice;
-    delete snow;
-    delete builtSnow;
-    delete cactus;
-    delete clay;
-    delete pumpkin;
-    delete portal;
-    delete cakeMaterial;
-}*/
 
-bool Material::getIsLiquid() const {
+// Material
+
+bool Material::getIsLiquid() const 
+{
     return false;
 }
 
-bool Material::isSolid() const {
+bool Material::isSolid() const 
+{
     return true;
 }
 
-bool Material::getCanBlockGrass() const {
+bool Material::getCanBlockGrass() const 
+{
     return true;
 }
 
-bool Material::getBurning() const {
-    return canBurn;
+bool Material::getBurning() const 
+{
+    return this->canBurn;
 }
 
 bool Material::getIsSolid() const {
@@ -111,25 +88,85 @@ bool Material::getIsSolid() const {
 }
 
 Material* Material::func_27284_f() {
-    field_27285_A = true;
+    this->field_27285_A = true;
     return this;
 }
 
 bool Material::func_27283_g() const {
-    return field_27285_A;
+    return this->field_27285_A;
 }
 
 bool Material::func_28126_h() const {
-    return field_28128_D ? false : getIsSolid();
+    return this->field_28128_D ? false : this->getIsSolid();
 }
 
 
 Material* Material::func_28127_i() {
-    field_28128_D = true;
+    this->field_28128_D = true;
     return this;
 }
 
 Material* Material::setBurning() {
-    canBurn = true;
+    this->canBurn = true;
     return this;
+}
+
+// MaterialTransparent
+
+bool MaterialTransparent::isSolid() const
+{
+    return false;
+}
+bool MaterialTransparent::getCanBlockGrass() const
+{
+    return false;
+}
+bool MaterialTransparent::getIsSolid() const
+{
+    return false;
+}
+
+// MaterialPortal
+
+bool MaterialPortal::isSolid() const
+{
+    return false;
+}
+bool MaterialPortal::getCanBlockGrass() const
+{
+    return false;
+}
+bool MaterialPortal::getIsSolid() const
+{
+    return false;
+}
+
+// MaterialLogic
+
+bool MaterialLogic::isSolid() const
+{
+    return false;
+}
+bool MaterialLogic::getCanBlockGrass() const
+{
+    return false;
+}
+bool MaterialLogic::getIsSolid() const
+{
+    return false;
+}
+
+// MaterialLiquid
+
+bool MaterialLiquid::isSolid() const
+{
+    return false;
+}
+bool MaterialLiquid::getIsLiquid() const
+{
+    return true;
+}
+bool MaterialLiquid::getIsSolid() const
+{
+    return false;
 }

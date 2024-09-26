@@ -2,7 +2,6 @@
 #include "../../World/map/MapColor.h"
 
 
-
 class Material {
 private:
 	bool canBurn;
@@ -11,7 +10,6 @@ private:
 public:
 	MapColor* materialMapColor;
     Material(MapColor* color) : materialMapColor(color) {};
-
     static void initMaterials();
 	//static void teardownMaterials();
 
@@ -56,4 +54,56 @@ private:
     Material* func_28127_i();
     Material* setBurning();
 };
+
+
+
+
+
+// MaterialTransparent
+class MaterialTransparent : public Material
+{
+public:
+    MaterialTransparent(MapColor* color) : Material(color)
+    {
+        this->func_27284_f();
+    }
+    bool isSolid() const override;
+    bool getCanBlockGrass() const override;
+    bool getIsSolid() const override;
+};
+
+// MaterialPortal
+class MaterialPortal : public Material
+{
+public:
+    MaterialPortal(MapColor* color) : Material(color) { }
+    bool isSolid() const override;
+    bool getCanBlockGrass() const override;
+    bool getIsSolid() const override;
+};
+
+
+// MaterialLogic
+class MaterialLogic : public Material
+{
+public:
+    MaterialLogic(MapColor* color) : Material(color) { }
+    bool isSolid() const override;
+    bool getCanBlockGrass() const override;
+    bool getIsSolid() const override;
+};
+
+// MaterialLiquid
+class MaterialLiquid : public Material
+{
+public:
+    MaterialLiquid(MapColor* color) : Material(color) 
+    { 
+        this->func_27284_f();
+    }
+    bool isSolid() const override;
+    bool getIsLiquid() const override;
+    bool getIsSolid() const override;
+};
+
 
