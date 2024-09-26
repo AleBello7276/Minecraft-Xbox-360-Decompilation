@@ -27,7 +27,7 @@ This is the **current Goal**.
 ## How Do I Help?
 You can join the Official Discord Server!
 
-Link: [https://discord.gg/v3KCbd7K6x](https://discord.gg/v3KCbd7K6x)
+Link: [https://discord.gg/v3KCbd7K6x](https://discord.com/invite/mm3PsUYvsg)
 
 
 ## How to Build
