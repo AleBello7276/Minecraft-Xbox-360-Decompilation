@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include "MapDataBase.h" 
 #include "MapCoord.h" 
-#include "../nbt/NBTTagCompound.h"
+#include "../Nbt/NBTTagCompound.h"
 
 // temporary
 class EntityPlayer;    // Forward declaration
