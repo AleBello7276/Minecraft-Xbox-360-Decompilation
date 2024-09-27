@@ -12,10 +12,14 @@ Entity::Entity()
 	this->nextStepDistance = 1;
 }
 
+Entity::~Entity()
+{
+}
+
 
 //set if entity is dead or not
 void Entity::setEntityDead(){
-  this->isDead = true;
+  this->isDead = true; 
   return;
 }
 

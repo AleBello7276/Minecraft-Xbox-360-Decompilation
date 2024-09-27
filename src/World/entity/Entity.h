@@ -32,13 +32,14 @@ public:
 	float height;
 	float prevDistanceWalkedModified;
 	float distanceWalkedModified;
-	float fallDistance;
 	double lastTickPosX;
 	double lastTickPosY;
 	double lastTickPosZ;
 	float ySize;
 
 	Entity();
+	virtual ~Entity();
+
 	void setLocationAndAngles(double x, double y, double z, float yaw, float pitch);
 	void setPosition(double x, double y, double z);
 	void setSize(float width, float height);
@@ -50,5 +51,7 @@ public:
 private:
 	int nextStepDistance;
 
+protected:
+	float fallDistance;
 
 };
