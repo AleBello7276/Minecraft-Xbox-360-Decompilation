@@ -36,12 +36,14 @@ SOURCES := \
     src/Minecraft.cpp \
     src/World/Entity/Entity.cpp \
     src/World/Map/MapColor.cpp \
+    src/World/WorldInfo.cpp \
     src/phys/AxisAlignedBB.cpp \
     src/Util/MathHelper.cpp \
     src/Util/Vec3D.cpp \
     src/Block/Material/Material.cpp \
     src/Model/ModelBiped.cpp \
     src/Renderer/ModelRenderer.cpp \
+    
 
 
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUTPUT_DIR)/%.obj)
@@ -70,12 +72,15 @@ MCDIRS := \
     build/World/Entity/ \
     build/phys/ \
     build/Util/ \
+    build/World/ \
+    build/World/Chunk/ \
     build/World/Map/ \
     build/World/Nbt/ \
     build/World/Biome/ \
     build/Block/Material/ \
     build/Model/ \
     build/Renderer/ \
+    build/Java/Math \
     
 
 .PHONY: create_dirs

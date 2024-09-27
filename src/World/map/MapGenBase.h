@@ -2,8 +2,7 @@
 
 #include "../../Java/Math/Random.h"
 #include "../World.h"
-
-class IChunkProvider;
+#include "../Chunk/IChunkProvider.h"
 
 class MapGenBase 
 {
