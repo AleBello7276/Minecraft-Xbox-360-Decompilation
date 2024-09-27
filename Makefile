@@ -34,13 +34,14 @@ EXE_NAME := $(OUTPUT_DIR)/$(PROJECT_NAME).exe
 SOURCES := \
     src/Game.cpp \
     src/Minecraft.cpp \
-    src/World/entity/Entity.cpp \
-    src/World/map/MapColor.cpp \
+    src/World/Entity/Entity.cpp \
+    src/World/Map/MapColor.cpp \
     src/phys/AxisAlignedBB.cpp \
     src/Util/MathHelper.cpp \
     src/Util/Vec3D.cpp \
     src/Block/Material/Material.cpp \
-#    src/World/map/MapData.cpp \
+    src/Model/ModelBiped.cpp \
+    src/Renderer/ModelRenderer.cpp \
 
 
 OBJECTS := $(SOURCES:$(SRC_DIR)/%.cpp=$(OUTPUT_DIR)/%.obj)
@@ -62,16 +63,20 @@ $(OUTPUT_DIR)/%.obj: $(SRC_DIR)/%.cpp | $(OUTPUT_DIR)
 	$(CC) $(CFLAGS) /c $< /Fo$@
 
 
-# --------------create_dirs---------------
-# this create the folders for obj files inside of build/ for the linker
+# --------------create_dirs and remove_dirs_dirs---------------
+# this create and clean the folders for obj files inside of build/ for the linker
 # I'm sure there's a simpler and better way to automate everything also for $SOURCES too (cmake I guess lol) but I've banged my head enough with this file so, if it works, it works
 MCDIRS := \
-    build/World/entity/ \
+    build/World/Entity/ \
     build/phys/ \
     build/Util/ \
-    build/World/map/ \
-    build/World/nbt/ \
+    build/World/Map/ \
+    build/World/Nbt/ \
+    build/World/Biome/ \
     build/Block/Material/ \
+    build/Model/ \
+    build/Renderer/ \
+    
 
 .PHONY: create_dirs
 create_dirs:
@@ -82,7 +87,17 @@ create_dirs:
 			echo Directory %%d already exists. \
 		) \
 	)
-# --------------create_dirs---------------
+
+.PHONY: remove_dirs
+remove_dirs:
+	@for %%d in ($(MCDIRS)) do ( \
+		if exist "%%d" ( \
+			rmdir /s /q "%%d" && echo Removed directory %%d \
+		) else ( \
+			echo Directory %%d does not exist. \
+		) \
+	)
+# --------------create_dirs and remove_dirs_dirs---------------
 
 .PHONY: clean
 clean:
@@ -90,4 +105,4 @@ clean:
     
 
 # Default target
-all: create_dirs
+all: clean remove_dirs create_dirs

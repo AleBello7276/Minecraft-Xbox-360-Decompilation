@@ -9,9 +9,12 @@ private:
 	bool field_28128_D;
 public:
 	MapColor* materialMapColor;
-    Material(MapColor* color) : materialMapColor(color) {};
+
+    Material(MapColor* color) : materialMapColor(color), canBurn(false), field_27285_A(false), field_28128_D(false) 
+    {};
+    
+    // staticCtor
     static void initMaterials();
-	//static void teardownMaterials();
 
     virtual bool getIsLiquid() const;
     virtual bool isSolid() const;

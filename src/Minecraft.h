@@ -3,7 +3,7 @@
 #include <xtl.h>
 #include <xboxmath.h>
 #include <cstdio>
-#include "World/entity/Entity.h"
+#include "World/Entity/Entity.h"
 #include "Logger.h"
 
 
