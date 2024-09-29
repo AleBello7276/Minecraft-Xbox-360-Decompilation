@@ -7,6 +7,7 @@
 #include "Minecraft.h"
 #include "World/map/MapColor.h"
 #include "World/Block/Material/Material.h"
+#include "World/Block/Block.h"
 // Test
 #include "Timer.h"
 

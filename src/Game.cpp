@@ -21,6 +21,7 @@ void Game::init(Minecraft* mc)
         this->staticCtorsInitialized = true;
         MapColor::statiCtor();
         Material::statiCtor();
+        Block::staticCtor();
     }
 
     // after everything is done call the minecraft init
