@@ -41,7 +41,7 @@ SOURCES := \
     src/phys/AxisAlignedBB.cpp \
     src/Util/MathHelper.cpp \
     src/Util/Vec3D.cpp \
-    src/Block/Material/Material.cpp \
+    src/World/Block/Material/Material.cpp \
     src/Model/ModelBiped.cpp \
     src/Renderer/ModelRenderer.cpp \
     
@@ -78,7 +78,7 @@ MCDIRS := \
     build/World/Map/ \
     build/World/Nbt/ \
     build/World/Biome/ \
-    build/Block/Material/ \
+    build/World/Block/Material/ \
     build/Model/ \
     build/Renderer/ \
     build/Java/Math \
