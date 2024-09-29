@@ -4,20 +4,23 @@
 #include "../Java/Math/Random.h"
 #include "Chunk/IChunkProvider.h"
 #include "WorldInfo.h"
-#include <array>
+#include "Entity/Entity.h"
+#include <vector>
 
 // TODO
 class WorldProvider;
 class MapStorage;
+class TileEntity;
+class EntityPlayer;
 
 class World : IBlockAccess
 {
 public:
     bool scheduledUpdatesAreImmediate;
-	//List loadedEntityList;
-	//List loadedTileEntityList;
-	//List playerEntities;
-	//List weatherEffects;
+	std::vector<Entity> loadedEntityList;
+	std::vector<TileEntity> loadedTileEntityList;
+	std::vector<EntityPlayer> playerEntities;
+	std::vector<Entity> weatherEffects;
 	int skylightSubtracted;
 	int field_27172_i;
 	bool editingBlocks;
@@ -31,8 +34,10 @@ public:
 	static const int field_9429_y = 0;
 	bool multiplayerWorld;
 
+	World();
+
 private:
-    //List unloadedEntityList;
+    std::vector<Entity> unloadedEntityList;
 	//TreeSet scheduledTickTreeSet;
 	//Set scheduledTickSet;
     //List lightingToUpdate;

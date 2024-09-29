@@ -44,13 +44,15 @@ int __cdecl main()
     Game* game = new Game();
     // mc instance
     Minecraft* mc = new Minecraft();
-
+   
 
     game->init(mc);
-    
+     
     for(;;) // loop forever
     {
-        Logger::LogPrintf("-------------MAIN LOOP------------------");
+        //mc->timer->updateTimer();
+        //long timee = mc->timer->currentTimeMills();
+        //Logger::LogPrintf("-------------MAIN LOOP %i--%i ------------------",  timee, mc->timer->elapsedTicks);
         game->run(mc);
     }
 

@@ -7,6 +7,8 @@
 #include "Minecraft.h"
 #include "World/map/MapColor.h"
 #include "Block/Material/Material.h"
+// Test
+#include "Timer.h"
 
 
 class Game
@@ -14,6 +16,7 @@ class Game
 public:
     Game();
     ~Game();
+    
 
 	void init(Minecraft* mc);
     void run(Minecraft* mc);

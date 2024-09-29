@@ -5,6 +5,7 @@
 #include <cstdio>
 #include "World/Entity/Entity.h"
 #include "Logger.h"
+#include "Timer.h"
 
 
 
@@ -30,6 +31,9 @@ private:
     };
 
 public:
+
+    
+
     Minecraft();
     ~Minecraft();
 
@@ -56,6 +60,7 @@ private:
 
     //Testing
     Entity* e;
+    Timer* timer;
 
 
     // Xdk sample

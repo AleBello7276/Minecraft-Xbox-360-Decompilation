@@ -33,6 +33,7 @@ EXE_NAME := $(OUTPUT_DIR)/$(PROJECT_NAME).exe
 # generated stuff for make file (grabs all .cpp files and all .obj files)
 SOURCES := \
     src/Game.cpp \
+    src/Timer.cpp \
     src/Minecraft.cpp \
     src/World/Entity/Entity.cpp \
     src/World/Map/MapColor.cpp \
