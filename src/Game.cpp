@@ -19,8 +19,8 @@ void Game::init(Minecraft* mc)
     {
         // minecraft staticCtors
         this->staticCtorsInitialized = true;
-        MapColor::initMapColors();
-        Material::initMaterials();
+        MapColor::statiCtor();
+        Material::statiCtor();
     }
 
     // after everything is done call the minecraft init
@@ -39,6 +39,21 @@ void Game::shutdown()
     //Nothing for now
 }
 
+unsigned long long Game::currentTimeMills()
+{
+    SYSTEMTIME systemTime; 
+    FILETIME fileTime;
+    unsigned long long  fileTimeIn64;
+
+    GetSystemTime(&systemTime); // 0x826b2f58
+    SystemTimeToFileTime(&systemTime, &fileTime); // 0x822be100
+    
+    fileTimeIn64 = ((unsigned long long )fileTime.dwHighDateTime << 32) | fileTime.dwLowDateTime; 
+
+    // from 100-nanosecond intervals to milliseconds i guess !?!?
+    return fileTimeIn64 / 10000;
+}
+
 int __cdecl main()
 {
     Game* game = new Game();
@@ -47,13 +62,18 @@ int __cdecl main()
    
 
     game->init(mc);
-     
+     unsigned long long startTime = game->currentTimeMills();
+
     for(;;) // loop forever
     {
-        //mc->timer->updateTimer();
-        //long timee = mc->timer->currentTimeMills();
-        //Logger::LogPrintf("-------------MAIN LOOP %i--%i ------------------",  timee, mc->timer->elapsedTicks);
         game->run(mc);
+        //Logger::LogPrintf("-------------TEST %i------------------",  time - startTime);
+        if(game->currentTimeMills() >= startTime + 1000)
+        {
+            mc->timer->updateTimer();
+            startTime += 1000;
+        }
+        Logger::LogPrintf("-------------TEST %i------------------",  mc->timer->elapsedTicks);
     }
 
     //delete mc;

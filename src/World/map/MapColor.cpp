@@ -25,7 +25,7 @@ MapColor::MapColor(int index, int value) {
 }
 
 
-void MapColor::initMapColors()
+void MapColor::statiCtor()
 {
     field_28212_b   = new MapColor(0, 0);
     field_28211_c   = new MapColor(1, 8368696);

@@ -30,7 +30,7 @@ Material
     * Material::cakeMaterial;
 
 
-void Material::initMaterials()
+void Material::statiCtor()
 {
 	air             = (new MaterialTransparent(MapColor::field_28212_b));
 	grassMaterial   = (new Material(MapColor::field_28211_c));

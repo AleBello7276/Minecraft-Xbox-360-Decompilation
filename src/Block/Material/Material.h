@@ -14,7 +14,7 @@ public:
     {};
     
     // staticCtor
-    static void initMaterials();
+    static void statiCtor();
 
     virtual bool getIsLiquid() const;
     virtual bool isSolid() const;

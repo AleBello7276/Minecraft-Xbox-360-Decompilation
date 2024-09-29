@@ -17,7 +17,7 @@ public:
     Game();
     ~Game();
     
-
+    unsigned long long currentTimeMills();
 	void init(Minecraft* mc);
     void run(Minecraft* mc);
 	void shutdown();

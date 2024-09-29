@@ -32,14 +32,13 @@ private:
 
 public:
 
-    
+    Timer* timer;
 
     Minecraft();
     ~Minecraft();
 
     void init();
     void run();
-
     
 
 
@@ -60,7 +59,6 @@ private:
 
     //Testing
     Entity* e;
-    Timer* timer;
 
 
     // Xdk sample

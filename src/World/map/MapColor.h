@@ -22,7 +22,7 @@ public:
             *field_28200_n,
             *field_28199_o;
     
-    static void initMapColors();
+    static void statiCtor();
     
 
     static const std::vector<MapColor*> mapColorArray;

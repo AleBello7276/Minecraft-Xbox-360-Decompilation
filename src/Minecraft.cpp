@@ -20,9 +20,6 @@ void Minecraft::init()
 
 void Minecraft::run()
 {
-    this->timer->updateTimer();
-    unsigned long long timee = this->timer->currentTimeMills();
-    Logger::LogPrintf("-------------TEST %i--%i ------------------",  timee, this->timer->elapsedTicks);
     runSample();
 }
 
