@@ -45,6 +45,7 @@ SOURCES := \
     src/World/Block/Material/Material.cpp \
     src/Model/ModelBiped.cpp \
     src/Renderer/ModelRenderer.cpp \
+    src/Network/Packet.cpp \
     
 
 
@@ -84,6 +85,7 @@ MCDIRS := \
     build/Model/ \
     build/Renderer/ \
     build/Java/Math \
+    build/Network \
     
 
 .PHONY: create_dirs
