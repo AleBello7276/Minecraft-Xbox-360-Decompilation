@@ -1,4 +1,4 @@
-#pragma omce
+#pragma once
 
 #include "Material/Material.h"
 
@@ -8,6 +8,7 @@ class TileEntity;
 
 class IBlockAccess 
 {
+public:
 	virtual int getBlockId(int var1, int var2, int var3) const { }
 	virtual TileEntity* getBlockTileEntity(int var1, int var2, int var3) const { }
 	virtual float getBrightness(int var1, int var2, int var3, int var4) const { }

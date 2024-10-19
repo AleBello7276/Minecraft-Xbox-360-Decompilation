@@ -38,7 +38,56 @@ void Block::staticCtor()
 
 }
 
-Block* Block::setResistance(float var1) {
+
+Block::Block(int var1, Material* var2) : maxZ(0.0), maxY(0.0), maxX(0.0), minZ(0.0), minY(0.0), minX(0.0),
+                                        field_27035_bo(true), enableStats(true), blockHardness(0.0), blockResistance(0.0), blockMaterial(var2),
+                                        stepSound(Block::soundPowderFootstep), blockParticleGravity(1.0), slipperiness(0.6)
+{
+
+    this->setBlockBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
+    Block::canBlockGrass[var1] = !var2->getCanBlockGrass();
+    Block::opaqueCubeLookup[var1] = true;
+}
+
+
+
+Block::Block(int var1, int var2, Material* var3) : maxZ(0.0), maxY(0.0), maxX(0.0), minZ(0.0), minY(0.0), minX(0.0),
+                                        field_27035_bo(true), enableStats(true), blockHardness(0.0), blockResistance(0.0), blockMaterial(var3),
+                                        stepSound(Block::soundPowderFootstep), blockParticleGravity(1.0), slipperiness(0.6), blockIndexInTexture(var2)
+{
+
+    this->setBlockBounds(0.0, 0.0, 0.0, 1.0, 1.0, 1.0);
+    Block::canBlockGrass[var1] = !var3->getCanBlockGrass();
+    Block::opaqueCubeLookup[var1] = true;
+}
+ 
+
+
+
+// 0x824da2c8
+Block* Block::setStepSound(StepSound *param_2)
+{
+    this->stepSound = param_2;
+    return this;
+}
+
+// 0x824da2d0
+Block * Block::setLightOpacity(int param_2)
+{
+    Block::lightOpacity[this->blockID] = param_2;
+    return this;
+}
+
+// 0x824da2e8
+Block * Block::setLightValue(float param_1)
+{
+    Block::lightValue[this->blockID] = (int)(param_1 * 15.0);
+    return this;
+}
+
+// 0x824da310
+Block* Block::setResistance(float var1) 
+{
 	this->blockResistance = var1 * 3.0F;
 	return this;
 }
@@ -53,6 +102,7 @@ int Block::getRenderType()
     return 0;
 }
 
+// 0x824da328
 Block* Block::setHardness(float var1) 
 {
 	this->blockHardness = var1;
@@ -79,3 +129,9 @@ void Block::setBlockBounds(float param_1,float param_2,float param_3,float param
     this->maxY = (double)param_5;
     this->maxZ = (double)param_6;
 } 
+
+// 0x824da3a0
+float Block::getBlockBrightness(IBlockAccess *param_2,int param_3,int param_4,int param_5)
+{
+    return param_2->getBrightness(param_3,param_4,param_5, Block::lightValue[this->blockID]);
+}
