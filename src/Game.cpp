@@ -79,6 +79,7 @@ int __cdecl main()
 
     //delete mc;
     delete game;
+    delete mc;
 
     return 0;
 }

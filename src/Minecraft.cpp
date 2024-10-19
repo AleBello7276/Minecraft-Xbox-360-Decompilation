@@ -3,7 +3,10 @@
 
 
 
+Minecraft::~Minecraft()
+{
 
+}
 
 Minecraft::Minecraft()
 {
