@@ -8,6 +8,9 @@
 #include "World/map/MapColor.h"
 #include "World/Block/Material/Material.h"
 #include "World/Block/Block.h"
+#include "Network/Packet.h"
+#include "Java/Math/Random.h"
+
 // Test
 #include "Timer.h"
 

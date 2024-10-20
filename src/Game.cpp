@@ -19,6 +19,7 @@ void Game::init(Minecraft* mc)
     {
         // minecraft staticCtors
         this->staticCtorsInitialized = true;
+        Packet::staticCtor();
         MapColor::statiCtor();
         Material::statiCtor();
         Block::staticCtor();
@@ -69,12 +70,11 @@ int __cdecl main()
     {
         game->run(mc);
         //Logger::LogPrintf("-------------TEST %i------------------",  time - startTime);
-        if(game->currentTimeMills() >= startTime + 1000)
-        {
-            mc->timer->updateTimer();
-            startTime += 1000;
-        }
-        Logger::LogPrintf("-------------TEST %i------------------",  mc->timer->elapsedTicks);
+        Random* rand = new Random(102);
+        
+        Logger::LogPrintf("-------------TEST %i------------------",  rand->nextInt(15));
+
+        delete rand;
     }
 
     //delete mc;
@@ -82,4 +82,4 @@ int __cdecl main()
     delete mc;
 
     return 0;
-}
+} 
