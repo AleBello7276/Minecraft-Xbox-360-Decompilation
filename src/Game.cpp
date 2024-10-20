@@ -66,18 +66,18 @@ int __cdecl main()
     game->init(mc);
      unsigned long long startTime = game->currentTimeMills();
 
-    for(;;) // loop forever
+    for(;;) // loop forever       
     {
         game->run(mc);
         //Logger::LogPrintf("-------------TEST %i------------------",  time - startTime);
-        Random* rand = new Random(102);
-        
-        Logger::LogPrintf("-------------TEST %i------------------",  rand->nextInt(15));
+        Random* rand = new Random(1202);
+          
+        Logger::LogPrintf("-------------TEST %.9lf------------------",  rand->nextGaussian());
 
         delete rand;
     }
-
-    //delete mc;
+  
+    //delete mc; 
     delete game;
     delete mc;
 

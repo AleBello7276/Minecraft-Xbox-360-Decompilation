@@ -10,11 +10,23 @@ void MathHelper::initialize() {
     }
 }
 
-float MathHelper::sin(float value) {
+float MathHelper::sin(float value) 
+{
+    if (SIN_TABLE == NULL)
+    {
+        initialize();
+    }
+
     return SIN_TABLE[static_cast<int>(value * 10430.378F) & 0xFFFF];
 }
 
-float MathHelper::cos(float value) {
+float MathHelper::cos(float value) 
+{
+    if (SIN_TABLE == NULL)
+    {
+        initialize();
+    }
+
     return SIN_TABLE[(static_cast<int>(value * 10430.378F + 16384.0F)) & 0xFFFF];
 }
 
