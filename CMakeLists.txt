@@ -72,7 +72,7 @@ set(TU2_LIBS
 
 set(SRC
 	src/main.cpp
-	src/globals.h
+	src/shared.h
 )
 
 
