@@ -10,6 +10,18 @@
             "ctestCommandArgs": "",
             "inheritEnvironments": [],
             "cmakeToolchain": "${projectDir}/Compiler/XMsvc.cmake"
+        },
+        {
+            "name": "Release",
+            "generator": "Ninja",
+            "configurationType": "Release",
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "buildCommandArgs": "--verbose",
+            "ctestCommandArgs": "",
+            "cmakeToolchain": "${projectDir}/Compiler/XMsvc.cmake",
+            "inheritEnvironments": [],
+            "variables": []
         }
     ]
 }

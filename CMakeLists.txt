@@ -31,42 +31,44 @@
 #6) C1             v16.0.11886.0
 
  
+
 cmake_minimum_required(VERSION 3.29)
 
-project(Rewritten)
-
+# the game uses LIBCPMT (c++), specify CXX so it doesn't try to use LIBCMT (c)
+project(Rewritten CXX)
 include(Compiler/XMsvc.cmake)
 message(STATUS "COMPILER: ${CMAKE_CXX_COMPILER_ID}")
 message(STATUS "COMPILER_VERSION: ${CMAKE_CXX_COMPILER_VERSION}")
 
 # some libs have shortened names to fit the character limit i guess
-set(TU2_LIBS 
-	xapilib.lib
+set(TU2_LIBS
+	# wth xapi !?, if in debug config it wants the debug version, but other libs do not complain lol
+	$<$<CONFIG:Debug>:xapilibd.lib>
+    $<$<CONFIG:Release>:xapilib.lib>
+
 	D3D9.lib
-	xgraphics.lib # XGRAOHC is short for xgraphics
+	xgraphics.lib
 	XBOXKRNL.lib
 	XNET.lib
 	XAUDIO2.lib
-	XAPOBase.lib # XAPOBA is short for XAPOBase
+	XAPOBase.lib
 	XACT3.lib
-	x3daudio.lib # X3DAUD is short for X3DAudio
+	x3daudio.lib
 	XMCORE.lib
 	LIBCPMT.lib
 	XUIRUN.lib
-	xuirender.lib # XUIRNDR is short for XUIRender
-	xuihtmld.lib	# XUIHTM is short for XUIHtml
+	xuirender.lib 
+	xuihtmld.lib
 	XONLINE.lib
-	qnetxaudio2.lib	# QNETXA2 is short for qnetxaudio2
-	#XRNSS.lib		not sure, i can't find this oneq
+	qnetxaudio2.lib
 	XRNMS.lib
-	xsocialpost.lib	# XSOCPST is short for xsocialpost
+	xsocialpost.lib	
 	XPARTY.lib
-	nuiapi.lib	# NUI, i guess it is nuiapi
+	nuiapi.lib
 	ST.lib
 	D3DX9.lib
 	XHV2.lib
 )
-
 
 set(SRC
 	src/main.cpp
@@ -74,7 +76,5 @@ set(SRC
 )
 
 
-
-add_executable(Rewritten test.cpp test2.c)
-
+add_executable(Rewritten ${SRC})
 target_link_libraries(Rewritten PRIVATE ${TU2_LIBS})
