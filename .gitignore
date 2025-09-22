@@ -1,6 +1,14 @@
 
 .vscode/
-build/*
+.vs/
+out/
 
-# Local help tools and things
-xe.bat
+*.xex
+*.xexp
+
+
+# XDK stuff
+/Compiler/bin
+/Compiler/lib
+/Compiler/include
+/Compiler/crt

@@ -1,0 +1,15 @@
+﻿{
+    "configurations": [
+        {
+            "name": "Debug",
+            "generator": "Ninja",
+            "configurationType": "Debug",
+            "buildRoot": "${projectDir}\\out\\build\\${name}",
+            "installRoot": "${projectDir}\\out\\install\\${name}",
+            "buildCommandArgs": "--verbose",
+            "ctestCommandArgs": "",
+            "inheritEnvironments": [],
+            "cmakeToolchain": "${projectDir}/Compiler/XMsvc.cmake"
+        }
+    ]
+}

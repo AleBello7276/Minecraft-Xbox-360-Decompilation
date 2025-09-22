@@ -5,58 +5,40 @@
 
 Formally referred to as **LCE Rewritten or simply Rewritten**
 
-This is a **Rewrite** (or Decompilation idk lol) of the Xbox 360 edition of Minecraft Legacy, also known as **Legacy Console Edition (LCE) or just Legacy.**
+This is a **Functional** Decompilation of the Xbox 360 edition of Minecraft Legacy (Title Update 2), also known as **Legacy Console Edition (LCE) or just Legacy.**
 
-
-
-The Decomp will first aim to be as close **as possible** to the original source code but mainly the game behaviors.
-
+A Function Decomp aims to recreate a compilable equivalent of the original source that is not necessary byte matching with the original binary but functionally equivalent.
 
 ## What Is Minecraft Legacy Console Edition?
 Minecraft for legacy consoles was a version of Minecraft ported to consoles by [4J Studios][4j].
 
 This version of the game was discontinued around 2019 and was replaced by the **Bedrock Edition.**
 
-## Progress
-<p align="center">
-  <img src="https://github.com/AleBello7276/Minecraft-Xbox-360-Decompilation/blob/main/img/Bar-V1.png" width="50%" >
-</p>
-
-
-This is the **current Goal**.
 ## How Do I Help?
-You can join the Official Discord Server!
+This project was abbandoned by me a while ago, i'm reving it up again, i don't know for how long i'll keep it again, so i wont promise anything, it's just a side project i'd say.
+
+Theres a Discord Server it is inactive tho, but if you wanna join here it is
 
 Link: [https://discord.com/invite/mm3PsUYvsg](https://discord.com/invite/mm3PsUYvsg)
 
 
 ## How to Build
-This is a oversimplified guide to build the project.
-on windows it works 100% since that's what I'm using, on linux and MacOs I don't know, if someone can run the Compiler and Linker EXEs on maybe Wine I think it can still work but I don't know
+So, to build the project you will need some [stuff][Stuff You Need], like the XDK version v2.0.21119, from that you will need the libs, headers, and the compiler + linker.
+Copy: **XDK/include**-**XDK/lib**-**XDK/bin** into ./Compiler folder, there are other headers, it's kinda weird maybe i'll write some script to extract later (i'm the only one who is compiling it so i don't care for now :} )
+A CMake Toolchain has been made to be able to use the compiler with CMake, so that's nice :}.
+you need Windows to run the compiler, if you want to build it on Linux or Mac you will need a way to run the tools, like Wine, i can't help with that for now.
 
-- First make sure to have a copy of the Xbox 360 XDK downloaded on your machine (I won't provide any guide on how to install it! you'll have to figure it out yourself)
-- at the moment we'll just need the folders: bin/ lib/ and include/ also the documentation can be useful, the rest will not be used
-- You need to set an Enviroment Varialble called "XEDK" which will be the root folder of the xdk (basically the folder where bin/ lib/ and include/ are located)
-- Then just run ``make`` to build the project
-- I recommend including the headers found in include/xbox in the IDE you are using, so intellisense will work with those, it will help a lot
+- TODO, add the steps here lol
 
-## Tools Used
-To compare Minecraft's Java beta 1.6.6 code to decompilation, I used:
-* [RetroMCP][rmcp]: RetroMCP is a modification of the Minecraft Coder Pack.
+## Stuff You Need
+Some of the stuff are not strictly needed, but if you want to contribute you will need them.
 
----
-
-For reverse engineering the game binaries's, I used: 
-* [Ghidra][ghi]: Ghidra is a software reverse engineering (SRE) framework created by the National Security Agency.
-
----
-
-For loading the .xex along with Ghidra, I used: 
-* [XEXLoaderWV][xel]: XEXLoaderWV is a .xex file loader for Ghidra.
+- The game. With Title Update 2, to get the assets
+- Ghidra, or IDA Pro with xex loader plugins
+- for those i need a Patched .xex of the TU2 (so XexTool baseGame.xex tu2.xexp)
+- The XDK v2.0.21119
+- CMake (i guess that's obvious)
 
 
-[rmcp]: https://github.com/MCPHackers/RetroMCP-Java
-[ghi]: https://github.com/NationalSecurityAgency/ghidra
-[xel]: https://github.com/zeroKilo/XEXLoaderWV
 [4j]: https://www.4jstudios.com
 [Todo]: https://github.com/AleBello7276/MC-LCE-Rewritten#to-do-list
