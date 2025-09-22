@@ -70,11 +70,20 @@ set(TU2_LIBS
 	XHV2.lib
 )
 
+set(FGL
+	src/Render/C4JRender.h
+	src/Render/Renderer.cpp
+	src/Render/Renderer.h
+)
+
 set(SRC
+	${FGL}
+
 	src/main.cpp
 	src/shared.h
 )
 
 
 add_executable(Rewritten ${SRC})
+target_include_directories(Rewritten PRIVATE src/)
 target_link_libraries(Rewritten PRIVATE ${TU2_LIBS})
