@@ -1,5 +1,5 @@
 
-#include "../shared.h"
+#include "shared.h"
 
 
 struct Renderer
@@ -16,9 +16,11 @@ struct Renderer
 	uint32_t criticalSection;
 	uint32_t gap6[6];
 
-	D3DPixelShader* pxShaders[3];
-	uint32_t unk_4c;
-	D3DVertexShader* vxShaders[3];
+	D3DVertexShader** m_vxShaderHandles;
+	D3DVertexShader* m_vxShader_0x44;
+	D3DPixelShader* m_pxShader_0x48;
+	D3DPixelShader* m_pxShader_0x4c;
+	char** m_vxShaderSrcs;
 
 	void Initialise(D3DDevice* d3dDevice);
 	void CreateCommandBuffer();
