@@ -10,7 +10,7 @@
             "ctestCommandArgs": "",
             "inheritEnvironments": [],
             "cmakeToolchain": "${projectDir}/Compiler/XMsvc.cmake",
-            "intelliSenseMode": "windows-msvc-x64"
+            "intelliSenseMode": "windows-msvc-x86"
         },
         {
             "name": "Release",
@@ -22,7 +22,7 @@
             "ctestCommandArgs": "",
             "cmakeToolchain": "${projectDir}/Compiler/XMsvc.cmake",
             "inheritEnvironments": [],
-            "intelliSenseMode": "windows-msvc-x64"
+            "intelliSenseMode": "windows-msvc-x86"
         }
     ]
 }
