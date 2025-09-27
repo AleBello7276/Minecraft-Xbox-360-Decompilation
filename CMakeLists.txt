@@ -79,6 +79,8 @@ set(FGL
 set(SRC
 	${FGL}
 
+	src/CMinecraftApp.cpp
+	src/CMinecraftApp.h
 	src/main.cpp
 	src/shared.h
 )

@@ -16,3 +16,6 @@ struct C4JRender
 
 };
 
+
+// .data addr 0x829baf68
+extern C4JRender g_FJRender;

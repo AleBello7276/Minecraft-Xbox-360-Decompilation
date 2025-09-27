@@ -1,8 +1,8 @@
-#include "Renderer.h"
+#include "C4JRender.h"
 
 
 uint32_t DAT_829bc16c = 0; // TU2 .data 0x829bc16c
-
+C4JRender g_FJRender;
 
 #include "TU2Shaders.h"
 
